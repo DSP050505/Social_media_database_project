@@ -161,3 +161,181 @@ CREATE INDEX idx_user_id ON USERS(user_id);             -- Index on USERS table 
 CREATE INDEX idx_post_id ON POSTS(post_id);             -- Index on POSTS table for post_id
 CREATE INDEX idx_group_id ON USER_GROUPS(group_id);     -- Index on USER_GROUPS table for group_id
 CREATE INDEX idx_page_id ON PAGES(page_id);             -- Index on PAGES table for page_id
+
+
+-- DATABASE FOR ABOVE SCHEMA 
+-- Inserting data into USERS table 
+INSERT INTO USERS (user_name, email, password, DOB, gender)
+VALUES
+('Alice', 'alice@example.com', 'password1', '1990-05-12', 'F'),
+('Bob', 'bob@example.com', 'password2', '1985-08-23', 'M'),
+('Charlie', 'charlie@example.com', 'password3', '1992-11-30', 'M'),
+('David', 'david@example.com', 'password4', '1995-01-15', 'M'),
+('Eva', 'eva@example.com', 'password5', '1988-04-07', 'F'),
+('Frank', 'frank@example.com', 'password6', '1993-09-12', 'M'),
+('Grace', 'grace@example.com', 'password7', '1989-02-28', 'F'),
+('Henry', 'henry@example.com', 'password8', '1994-06-19', 'M'),
+('Ivy', 'ivy@example.com', 'password9', '1991-07-21', 'F'),
+('Jack', 'jack@example.com', 'password10', '1990-03-14', 'M'),
+('Kara', 'kara@example.com', 'password11', '1986-05-25', 'F'),
+('Leo', 'leo@example.com', 'password12', '1984-10-10', 'M'),
+('Mia', 'mia@example.com', 'password13', '1992-02-03', 'F'),
+('Nathan', 'nathan@example.com', 'password14', '1995-11-05', 'M'),
+('Olivia', 'olivia@example.com', 'password15', '1987-12-17', 'F'),
+('Paul', 'paul@example.com', 'password16', '1989-03-09', 'M'),
+('Quinn', 'quinn@example.com', 'password17', '1993-05-29', 'M'),
+('Rachel', 'rachel@example.com', 'password18', '1991-07-10', 'F'),
+('Sam', 'sam@example.com', 'password19', '1988-08-02', 'M'),
+('Tina', 'tina@example.com', 'password20', '1990-12-13', 'F');
+
+-- Inserting data into USER_GROUPS table 
+INSERT INTO USER_GROUPS (group_name, group_details, admin)
+VALUES
+('Sports Enthusiasts', 'Group for people who love sports', 1),
+('Book Lovers', 'A group for book readers', 2),
+('Movie Buffs', 'A group for movie discussions', 3),
+('Travelers', 'Share travel experiences', 4),
+('Music Fans', 'A group for music lovers', 5),
+('Foodies', 'Discuss delicious food', 6),
+('Tech Geeks', 'Latest tech trends', 7),
+('Fitness Group', 'Get fit and healthy', 8),
+('Gaming Zone', 'Gaming discussions', 9),
+('Photographers', 'Share photography tips', 10),
+('Artists Hub', 'Art and creativity group', 11),
+('Nature Lovers', 'Explore nature', 12),
+('Pet Owners', 'Discuss pet care', 13),
+('Business Minds', 'Business and entrepreneurship', 14),
+('Coding Experts', 'Share coding knowledge', 15),
+('Auto Fans', 'Car and bike lovers', 16),
+('Environment Warriors', 'Talk about environment protection', 17),
+('Fashionistas', 'Latest fashion trends', 18),
+('Investors', 'Discuss investments', 19),
+('Bloggers', 'Share blogging tips', 20);
+
+-- Inserting data into PAGES table 
+INSERT INTO PAGES (page_name, page_details, created_by_id)
+VALUES
+('Healthy Living', 'Tips for a healthy lifestyle', 1),
+('Adventure Diaries', 'Share your adventure stories', 2),
+('Tech News', 'Latest technology updates', 3),
+('Movie Reviews', 'Reviews and ratings of latest movies', 4),
+('Food Recipes', 'Delicious recipes to try', 5),
+('Photography Tips', 'Improve your photography skills', 6),
+('Travel Guides', 'Explore the world with travel guides', 7),
+('Art Showcase', 'A gallery for artists', 8),
+('Gaming News', 'Latest news in the gaming world', 9),
+('Fitness Tips', 'Stay fit with expert advice', 10),
+('Book Reviews', 'Reviews of bestsellers', 11),
+('Auto World', 'All about cars and bikes', 12),
+('Fashion Trends', 'Stay updated on fashion', 13),
+('Pet Care', 'Tips for taking care of pets', 14),
+('Business Growth', 'Tips for entrepreneurs', 15),
+('Coding Help', 'Programming tips and tricks', 16),
+('Nature Conservation', 'Protect nature and wildlife', 17),
+('Music Lovers', 'Share and discuss music', 18),
+('Investor Tips', 'Investment advice for beginners', 19),
+('Blogger World', 'Tips for successful blogging', 20);
+
+-- Inserting data into POSTS table
+INSERT INTO POSTS (author_id, group_id, page_id, user_timeline_id, post_type)
+VALUES
+(1, 1, NULL, NULL, 'text'),
+(2, 2, NULL, NULL, 'image'),
+(3, NULL, 1, NULL, 'text'),
+(4, 3, NULL, NULL, 'video'),
+(5, NULL, 2, NULL, 'text'),
+(6, NULL, 3, NULL, 'image'),
+(7, 4, NULL, NULL, 'text'),
+(8, NULL, 4, NULL, 'video'),
+(9, 5, NULL, NULL, 'image'),
+(10, NULL, 5, NULL, 'text'),
+(11, NULL, NULL, 1, 'text'),
+(12, 6, NULL, NULL, 'video'),
+(13, NULL, 6, NULL, 'text'),
+(14, NULL, 7, NULL, 'image'),
+(15, NULL, NULL, 2, 'text'),
+(16, 7, NULL, NULL, 'video'),
+(17, NULL, 8, NULL, 'image'),
+(18, NULL, 9, NULL, 'text'),
+(19, 8, NULL, NULL, 'text'),
+(20, NULL, 10, NULL, 'video');
+
+-- Inserting data into TEXT_POSTS table
+INSERT INTO TEXT_POSTS (post_id, post_text)
+VALUES
+(1, 'A healthy lifestyle is key to happiness'),
+(3, 'Technology is advancing at a fast pace'),
+(5, 'Adventure is out there! Let\'s explore.'),
+(7, 'Join the fitness group and get healthy!'),
+(10, 'Photography is a beautiful art.'),
+(11, 'Coding can be fun and creative.'),
+(13, 'Let\'s share some tips about coding.'),
+(15, 'Books open up a world of imagination.'),
+(18, 'Nature is our biggest asset, protect it.'),
+(19, 'Discuss your fitness journey with us.');
+
+-- Inserting data into IMAGE_VIDEO_POSTS table
+INSERT INTO IMAGE_VIDEO_POSTS (post_id, post_blob)
+VALUES
+(2, 'IMAGE BLOB DATA HERE'),
+(4, 'VIDEO BLOB DATA HERE'),
+(6, 'IMAGE BLOB DATA HERE'),
+(8, 'VIDEO BLOB DATA HERE'),
+(9, 'IMAGE BLOB DATA HERE'),
+(12, 'VIDEO BLOB DATA HERE'),
+(14, 'IMAGE BLOB DATA HERE'),
+(16, 'VIDEO BLOB DATA HERE'),
+(17, 'IMAGE BLOB DATA HERE'),
+(20, 'VIDEO BLOB DATA HERE');
+
+-- Inserting data into COMMENTS table
+INSERT INTO COMMENTS (post_id, commenter_id, comment_text, type_of_comment)
+VALUES
+(1, 2, 'Great post about healthy living!', 'text'),
+(2, 3, 'Awesome picture!', 'text'),
+(3, 4, 'Very informative post', 'text'),
+(4, 5, 'Cool video!', 'text'),
+(5, 6, 'I love adventures', 'text'),
+(6, 7, 'Great shot!', 'text'),
+(7, 8, 'I agree with your point', 'text'),
+(8, 9, 'Amazing video!', 'text'),
+(9, 10, 'Nice photo!', 'text'),
+(10, 11, 'Beautiful!', 'text');
+
+-- Inserting data into REPLIES table
+INSERT INTO REPLIES (parent_comment_id, replied_by_id, reply_text)
+VALUES
+(1, 3, 'Thank you!'),
+(2, 4, 'Glad you liked it!'),
+(3, 5, 'Thanks for the feedback!'),
+(4, 6, 'Glad you enjoyed it!'),
+(5, 7, 'I agree!'),
+(6, 8, 'Thank you!'),
+(7, 9, 'I appreciate it!'),
+(8, 10, 'Thanks!'),
+(9, 11, 'I\'m happy you liked it!'),
+(10, 12, 'Thanks a lot!');
+
+-- Inserting data into LIKES table
+INSERT INTO LIKES (like_on_id, like_on_type, liked_by_id)
+VALUES
+(1, 'post', 3),
+(2, 'post', 4),
+(3, 'post', 5),
+(4, 'post', 6),
+(5, 'post', 7),
+(6, 'post', 8),
+(7, 'post', 9),
+(8, 'post', 10),
+(9, 'post', 11),
+(10, 'post', 12),
+(1, 'comment', 3),
+(2, 'comment', 4),
+(3, 'comment', 5),
+(4, 'comment', 6),
+(5, 'comment', 7),
+(6, 'comment', 8),
+(7, 'comment', 9),
+(8, 'comment', 10),
+(9, 'comment', 11),
+(10, 'comment', 12);
